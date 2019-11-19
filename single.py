@@ -3,10 +3,12 @@ from django.conf import settings
 from django.core.wsgi import get_wsgi_application
 from django.http import HttpResponse
 from django.urls import path
+from decouple import config, Csv
 
 settings.configure(
-	DEBUG = True,
-	SECRET_KEY = 'LetsUseThisForNow.WeWillTakeCareOfThisLater',
+	DEBUG=config('DEBUG', default=False, cast=bool),
+	SECRET_KEY=config('SECRET_KEY'),
+	ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv()),
 	ROOT_URLCONF = __name__,
 	MIDDLEWARE_CLASSES = [
 		'django.middleware.common.CommonMiddleware',

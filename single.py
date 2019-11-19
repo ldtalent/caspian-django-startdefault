@@ -7,7 +7,7 @@ from decouple import config, Csv
 
 settings.configure(
 	DEBUG=config('DEBUG', default=False, cast=bool),
-	SECRET_KEY=config('SECRET_KEY'),
+	SECRET_KEY=config('SECRET_KEY', default='{{ secret_key }}'),
 	ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv()),
 	ROOT_URLCONF = __name__,
 	MIDDLEWARE_CLASSES = [
@@ -15,6 +15,12 @@ settings.configure(
 		'django.middleware.csrf.CsrfViewMiddleware',
 		'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	],
+	DATABASES={
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': ('db.sqlite3'),
+		}
+	}
 )
 
 def index(request):

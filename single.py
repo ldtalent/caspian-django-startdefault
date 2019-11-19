@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.http import HttpResponse
 
 settings.configure(
 	DEBUG = True,
@@ -10,3 +11,6 @@ settings.configure(
 		'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	],
 )
+
+def index(request):
+	return HttpResponse("<h1>Hello, this is a minimal project setup. Configure as you please!</h1>")

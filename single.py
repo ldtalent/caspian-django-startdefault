@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.http import HttpResponse
+from django.urls import path
 
 settings.configure(
 	DEBUG = True,
@@ -14,3 +15,7 @@ settings.configure(
 
 def index(request):
 	return HttpResponse("<h1>Hello, this is a minimal project setup. Configure as you please!</h1>")
+
+urlpatterns = [
+	path('', index, name='index'),
+]

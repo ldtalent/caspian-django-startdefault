@@ -1,1 +1,1 @@
-# caspian-django-startdefault
+# Starting a Django Project Without the startproject Command

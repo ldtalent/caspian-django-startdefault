@@ -7,7 +7,7 @@ from decouple import config, Csv
 
 settings.configure(
 	DEBUG=config('DEBUG', default=False, cast=bool),
-	SECRET_KEY=config('SECRET_KEY', default='!+mznfh*q9vtlvh)6u*_nz7yg&)w#@=^963l8%beuu1702^!2j'),
+	SECRET_KEY=config('SECRET_KEY'),
 	ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv()),
 	ROOT_URLCONF = __name__,
 	MIDDLEWARE_CLASSES = [

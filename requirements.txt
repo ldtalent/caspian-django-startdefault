@@ -1,5 +1,5 @@
 certifi==2019.9.11
-Django==2.2.8
+Django==2.2.24
 gunicorn==19.8.0
 python-decouple==3.2
 pytz==2019.3
